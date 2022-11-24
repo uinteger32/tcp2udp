@@ -12,20 +12,27 @@ class Program
             System.Console.WriteLine("Usage: tcp2udp <Bind Adress> <TCP Listen Port> <UDP Destination> <UDP Destination Port> <Max Connection>");
             return;
         }
-        string bindAdress = args[0];
-        int listenPort = int.Parse(args[1]);
-        string destination = args[2];
-        int destPort = int.Parse(args[3]);
-        int maxConnection = int.Parse(args[4]);
+        try
+        {
+            string bindAdress = args[0];
+            int listenPort = int.Parse(args[1]);
+            string destination = args[2];
+            int destPort = int.Parse(args[3]);
+            int maxConnection = int.Parse(args[4]);
 
-        tcp2udp.bindAdress = bindAdress;
-        tcp2udp.bindPort = listenPort;
-        tcp2udp.destination = destination;
-        tcp2udp.destinationPort = destPort;
-        tcp2udp.maxConnection = maxConnection;
+            tcp2udp.bindAdress = bindAdress;
+            tcp2udp.bindPort = listenPort;
+            tcp2udp.destination = destination;
+            tcp2udp.destinationPort = destPort;
+            tcp2udp.maxConnection = maxConnection;
 
-        tcp2udp.StartListener();
-
+            tcp2udp.StartListener();
+        }
+        catch
+        {
+            System.Console.WriteLine("Usage: tcp2udp <Bind Adress> <TCP Listen Port> <UDP Destination> <UDP Destination Port> <Max Connection>");
+            return;
+        }
     }
 
 

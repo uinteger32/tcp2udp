@@ -123,7 +123,7 @@ class Connection
 
             udpConnection.BeginSend(data, 0, data.Length, SocketFlags.None, null, null);
 
-            tcpConnection.BeginReceive(tcpBuffer, 0, tcpBuffer.Length, SocketFlags.None, tcpReceive, null);
+            tcpConnection.BeginReceive(tcpBuffer, 0, tcpBuffer.Length, SocketFlags.None, TcpReceive, null);
         }
         catch
         {
@@ -152,7 +152,7 @@ class Connection
 
             tcpConnection.BeginSend(data, 0, data.Length, SocketFlags.None, null, null);
 
-            udpConnection.BeginReceive(udpBuffer, 0, udpBuffer.Length, SocketFlags.None, udpReceive, null);
+            udpConnection.BeginReceive(udpBuffer, 0, udpBuffer.Length, SocketFlags.None, UdpReceive, null);
         }
         catch
         {

@@ -93,8 +93,8 @@ class Connection
         try
         {
             udpConnection.Connect(tcp2udp.destination, tcp2udp.destinationPort);
-            tcpConnection.BeginReceive(tcpBuffer, 0, tcpBuffer.Length, SocketFlags.None, tcpReceive, null);
-            udpConnection.BeginReceive(udpBuffer, 0, udpBuffer.Length, SocketFlags.None, udpReceive, null);
+            tcpConnection.BeginReceive(tcpBuffer, 0, tcpBuffer.Length, SocketFlags.None, TcpReceive, null);
+            udpConnection.BeginReceive(udpBuffer, 0, udpBuffer.Length, SocketFlags.None, UdpReceive, null);
         }
         catch
         {
@@ -105,7 +105,7 @@ class Connection
 
     }
 
-    void tcpReceive(IAsyncResult result)
+    void TcpReceive(IAsyncResult result)
     {
         try
         {
@@ -133,7 +133,7 @@ class Connection
             return;
         }
     }
-    void udpReceive(IAsyncResult result)
+    void UdpReceive(IAsyncResult result)
     {
         try
         {
